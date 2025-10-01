@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rahil Mulani — Web & Data Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; /* deep navy */
+      --card:#0b1320;
+      --muted:#9aa6b2;
+      --accent:#6ee7b7; /* mint */
+      --accent-2:#60a5fa; /* sky */
+      --glass: rgba(255,255,255,0.04);
+      --radius: 14px;
+      --maxw:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg,#071021 0%, var(--bg) 100%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:32px 20px;
+      display:flex;
+      justify-content:center;
+    }
+    .container{width:100%;max-width:var(--maxw)}
+
+    /* NAV */
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent), var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#042;box-shadow:0 6px 30px rgba(6,12,24,0.6)}
+    .logo span{font-family:'Space Grotesk', Inter;}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:14px}
+    nav a:hover{color:var(--accent)}
+    .cta{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#022;padding:10px 14px;border-radius:10px;font-weight:700;text-decoration:none}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-bottom:28px}
+    @media(max-width:940px){.hero{grid-template-columns:1fr}}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:var(--radius);padding:28px;box-shadow:0 6px 30px rgba(2,6,23,0.7);} 
+
+    h1{font-family:'Space Grotesk';margin:0;font-size:34px;letter-spacing:-0.6px}
+    .lead{color:var(--muted);margin-top:8px;font-size:15px}
+    .pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .pill{background:var(--glass);padding:8px 10px;border-radius:999px;font-weight:600;font-size:13px;color:var(--muted)}
+    .hero-figure{border-radius:12px;padding:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);display:flex;flex-direction:column;gap:12px}
+    .profile{display:flex;gap:12px;align-items:center}
+    .avatar{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,#fff3,#fff4);display:flex;align-items:center;justify-content:center;color:#062;font-weight:800;font-family:'Space Grotesk'}
+    .profile h3{margin:0}
+    .stat-row{display:flex;gap:12px;justify-content:space-between;margin-top:12px}
+    .stat{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:10px;border-radius:12px;flex:1;text-align:center}
+    .stat strong{display:block;font-size:18px}
+
+    /* Sections */
+    section{margin-bottom:22px}
+    .section-title{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+    .section-title h2{margin:0;font-size:18px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    @media(max-width:940px){.grid-3{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:620px){.grid-3{grid-template-columns:1fr}}
+
+    /* SKILLS */
+    .skill{padding:12px;border-radius:10px;background:linear-gradient(90deg, rgba(255,255,255,0.01), transparent);}
+    .skill .bar{height:10px;background:rgba(255,255,255,0.06);border-radius:999px;margin-top:8px;overflow:hidden}
+    .skill .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:999px}
+
+    /* PROJECTS */
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    @media(max-width:940px){.projects{grid-template-columns:1fr}}
+    .project-card{display:flex;gap:14px;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);align-items:center}
+    .project-thumb{width:96px;height:64px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:700}
+    .project-meta h3{margin:0;font-size:16px}
+    .tags{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+    .tag{padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.03);font-size:12px}
+
+    /* CERTS */
+    .cert-grid{display:flex;gap:12px;flex-wrap:wrap}
+    .cert{min-width:220px;padding:12px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.01), transparent);}
+
+    /* CONTACT */
+    .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
+    @media(max-width:940px){.contact-grid{grid-template-columns:1fr}}
+    input,textarea{width:100%;padding:12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit}
+    label{display:block;margin-bottom:6px;color:var(--muted);font-size:13px}
+    button.btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));border:none;padding:12px 14px;border-radius:10px;font-weight:700;color:#022;cursor:pointer}
+
+    /* FOOTER */
+    footer{margin-top:18px;padding:18px;border-radius:12px;background:transparent;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .flex{display:flex;align-items:center;gap:10px}
+
+    /* subtle animations */
+    [data-reveal]{opacity:0;transform:translateY(10px);transition:all 600ms cubic-bezier(.2,.9,.3,1)}
+    [data-reveal].is-visible{opacity:1;transform:none}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo"><span>RM</span></div>
+        <div>
+          <div style="font-weight:800">Rahil Mulani</div>
+          <div class="muted" style="font-size:13px">Web Developer • Data Analyst</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#certs">Certifications</a>
+        <a href="#contact" class="cta">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="card" data-reveal>
+          <h1>Hi — I'm <span style="color:var(--accent)">Rahil</span>. I build beautiful web apps and turn data into stories.</h1>
+          <p class="lead">Full‑stack web development • Data analytics • Visualization • Product-minded engineering</p>
+          <div class="pills">
+            <div class="pill">React</div>
+            <div class="pill">Node.js</div>
+            <div class="pill">Python</div>
+            <div class="pill">SQL</div>
+            <div class="pill">Data Viz</div>
+            <div class="pill">D3 / Chart.js</div>
+          </div>
+
+          <div style="margin-top:22px;display:flex;gap:12px;align-items:center">
+            <a class="cta" href="#projects">See Projects</a>
+            <a style="padding:10px 12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);text-decoration:none;color:var(--muted);font-weight:700" href="#contact">Hire Me</a>
+          </div>
+
+          <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+            <div class="card" style="padding:12px;border-radius:10px;background:linear-gradient(90deg,rgba(255,255,255,0.01),transparent);display:flex;gap:12px;align-items:center">
+              <div style="font-weight:800;font-size:18px;color:var(--accent)">3+</div>
+              <div class="muted" style="font-size:13px">Years experience</div>
+            </div>
+            <div class="card" style="padding:12px;border-radius:10px;background:linear-gradient(90deg,rgba(255,255,255,0.01),transparent);display:flex;gap:12px;align-items:center">
+              <div style="font-weight:800;font-size:18px;color:var(--accent)">15+</div>
+              <div class="muted" style="font-size:13px">Projects shipped</div>
+            </div>
+            <div class="card" style="padding:12px;border-radius:10px;background:linear-gradient(90deg,rgba(255,255,255,0.01),transparent);display:flex;gap:12px;align-items:center">
+              <div style="font-weight:800;font-size:18px;color:var(--accent)">140g</div>
+              <div class="muted" style="font-size:13px">Daily protein target (fun fact)</div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="card hero-figure" data-reveal>
+          <div class="profile">
+            <div class="avatar">RM</div>
+            <div>
+              <h3>Rahil Mulani</h3>
+              <div class="muted">Web Developer & Data Analyst</div>
+            </div>
+          </div>
+
+          <div class="stat-row">
+            <div class="stat"><strong>React</strong><div class="muted">Interactive UIs</div></div>
+            <div class="stat"><strong>Python</strong><div class="muted">Data processing</div></div>
+          </div>
+
+          <div class="muted" style="font-size:13px;margin-top:10px">Quick Snapshot</div>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <div style="flex:1">
+              <div class="muted" style="font-size:13px">Web</div>
+              <div style="height:8px;background:rgba(255,255,255,0.05);border-radius:999px;margin-top:6px;overflow:hidden"><i style="display:block;height:100%;width:86%;background:linear-gradient(90deg,var(--accent),var(--accent-2));"></i></div>
+            </div>
+            <div style="flex:1">
+              <div class="muted" style="font-size:13px">Data</div>
+              <div style="height:8px;background:rgba(255,255,255,0.05);border-radius:999px;margin-top:6px;overflow:hidden"><i style="display:block;height:100%;width:78%;background:linear-gradient(90deg,var(--accent),var(--accent-2));"></i></div>
+            </div>
+          </div>
+
+          <div style="margin-top:auto;display:flex;gap:8px;justify-content:space-between;align-items:center">
+            <div class="muted" style="font-size:13px">Location</div>
+            <div style="font-weight:700">Pune, India</div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about" class="card" data-reveal>
+        <div class="section-title"><h2>About</h2><div class="muted">A short, sharp summary</div></div>
+        <p class="muted">I build user-centric web applications and pipelines that turn raw data into actionable insights. I specialize in front-end engineering with React, server-side and APIs with Node/Python, and data analysis/visualization using Python, SQL, and JavaScript visualization libraries.</p>
+        <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+          <a href="#" class="pill">Download Resume</a>
+          <a href="#certs" class="pill">View Certifications</a>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="section-title"><h2>Highlighted Projects</h2><div class="muted">Selected work — web & analytics</div></div>
+        <div class="projects">
+          <article class="project-card card" data-reveal>
+            <div class="project-thumb" style="background:linear-gradient(135deg,var(--accent-2),var(--accent))">WD</div>
+            <div class="project-meta">
+              <h3>Interactive E‑commerce Dashboard</h3>
+              <p class="muted" style="margin:6px 0">A real-time analytics dashboard for sales, built with React, Chart.js and Flask. Filters, drilldowns, and PDF export.</p>
+              <div class="tags"><span class="tag">React</span><span class="tag">Chart.js</span><span class="tag">Python</span></div>
+            </div>
+          </article>
+
+          <article class="project-card card" data-reveal>
+            <div class="project-thumb" style="background:linear-gradient(135deg,#fdba74,#fb7185)">DA</div>
+            <div class="project-meta">
+              <h3>Shipment Analysis & Route Optimization</h3>
+              <p class="muted" style="margin:6px 0">EDA, clustering, and a simple ML model that reduced transit cost in a simulated dataset.</p>
+              <div class="tags"><span class="tag">Pandas</span><span class="tag">scikit‑learn</span><span class="tag">SQL</span></div>
+            </div>
+          </article>
+
+          <article class="project-card card" data-reveal>
+            <div class="project-thumb" style="background:linear-gradient(135deg,#34d399,#60a5fa)">CV</div>
+            <div class="project-meta">
+              <h3>Portfolio Site (This site)</h3>
+              <p class="muted" style="margin:6px 0">A responsive, accessible, and performance-minded single-file portfolio built with HTML/CSS/JS.</p>
+              <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span></div>
+            </div>
+          </article>
+
+          <article class="project-card card" data-reveal>
+            <div class="project-thumb" style="background:linear-gradient(135deg,#f472b6,#60a5fa)">ML</div>
+            <div class="project-meta">
+              <h3>Customer Segmentation</h3>
+              <p class="muted" style="margin:6px 0">A customer segmentation pipeline with feature engineering and cluster-based targeting recommendations.</p>
+              <div class="tags"><span class="tag">Clustering</span><span class="tag">Pandas</span><span class="tag">SQL</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" class="card" data-reveal>
+        <div class="section-title"><h2>Skills</h2><div class="muted">Web development & Data analytics</div></div>
+        <div class="grid-3">
+          <div class="skill">
+            <strong>Front-end</strong>
+            <div class="muted" style="font-size:13px">React, HTML5, CSS3, Tailwind (optional), Responsive</div>
+            <div class="bar" aria-hidden><i style="width:92%"></i></div>
+          </div>
+          <div class="skill">
+            <strong>Back-end</strong>
+            <div class="muted" style="font-size:13px">Node.js, Express, REST APIs, Flask</div>
+            <div class="bar" aria-hidden><i style="width:78%"></i></div>
+          </div>
+          <div class="skill">
+            <strong>Data</strong>
+            <div class="muted" style="font-size:13px">Python, Pandas, SQL, scikit‑learn</div>
+            <div class="bar" aria-hidden><i style="width:86%"></i></div>
+          </div>
+          <div class="skill">
+            <strong>Visualization</strong>
+            <div class="muted" style="font-size:13px">D3, Chart.js, Tableau basics</div>
+            <div class="bar" aria-hidden><i style="width:80%"></i></div>
+          </div>
+          <div class="skill">
+            <strong>Tools</strong>
+            <div class="muted" style="font-size:13px">Git, Docker, VSCode, Google Sheets</div>
+            <div class="bar" aria-hidden><i style="width:76%"></i></div>
+          </div>
+          <div class="skill">
+            <strong>Other</strong>
+            <div class="muted" style="font-size:13px">Communication, Product thinking, Rapid prototyping</div>
+            <div class="bar" aria-hidden><i style="width:82%"></i></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="certs" data-reveal>
+        <div class="section-title"><h2>Certifications</h2><div class="muted">Selected certificates & courses</div></div>
+        <div class="cert-grid">
+          <div class="cert card"><strong>Data Analytics — XYZ Bootcamp</strong><div class="muted" style="font-size:13px;margin-top:6px">Completion: Jun 2025</div></div>
+          <div class="cert card"><strong>Front-End Web Development — Coursera</strong><div class="muted" style="font-size:13px;margin-top:6px">Completion: Mar 2025</div></div>
+          <div class="cert card"><strong>SQL for Data Science — Skillshare</strong><div class="muted" style="font-size:13px;margin-top:6px">Completion: Dec 2024</div></div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="section-title"><h2>Contact</h2><div class="muted">Let's build something</div></div>
+        <div class="contact-grid">
+          <div class="card" data-reveal>
+            <form id="contactForm">
+              <label for="name">Name</label>
+              <input id="name" placeholder="Your name" required>
+
+              <label for="email" style="margin-top:10px">Email</label>
+              <input id="email" type="email" placeholder="you@email.com" required>
+
+              <label for="msg" style="margin-top:10px">Message</label>
+              <textarea id="msg" rows="5" placeholder="Tell me about your project" required></textarea>
+
+              <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+                <button class="btn">Send Message</button>
+                <div class="muted" style="font-size:13px">Or ping me at <strong>rahilmulani@example.com</strong></div>
+              </div>
+            </form>
+          </div>
+
+          <aside class="card" data-reveal>
+            <h3>Availability</h3>
+            <p class="muted">Open to internships & freelance work. Based in Pune (remote friendly).</p>
+
+            <div style="margin-top:12px">
+              <div class="muted" style="font-size:13px">Social</div>
+              <div style="display:flex;gap:8px;margin-top:8px">
+                <a class="pill" href="#">Github</a>
+                <a class="pill" href="#">LinkedIn</a>
+                <a class="pill" href="#">Kaggle</a>
+              </div>
+            </div>
+
+            <div style="margin-top:14px">
+              <div class="muted" style="font-size:13px">Quick links</div>
+              <div style="display:flex;gap:8px;margin-top:8px;flex-direction:column">
+                <a class="muted" href="#projects">Projects</a>
+                <a class="muted" href="#skills">Skills</a>
+                <a class="muted" href="#certs">Certifications</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <footer>
+        <div class="muted">© " + new Date().getFullYear() + " Rahil Mulani</div>
+        <div class="muted">Designed with care • Built with HTML/CSS/JS</div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Small helpers: reveal on scroll
+    const reveals = document.querySelectorAll('[data-reveal]');
+    const onScroll = () => {
+      const h = window.innerHeight;
+      reveals.forEach(el => {
+        const r = el.getBoundingClientRect();
+        if(r.top < h - 80) el.classList.add('is-visible');
+      })
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll);
+
+    // Contact form fake submit (no backend)
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const msg = document.getElementById('msg').value;
+      // Simple UI feedback
+      const btn = this.querySelector('.btn');
+      btn.textContent = 'Sending...';
+      setTimeout(()=>{
+        btn.textContent = 'Send Message';
+        alert('Thanks '+ (name || 'there') +" — message simulated. Replace with your backend or email link to actually send.");
+        this.reset();
+      },900);
+    });
+
+    // Small accessibility: smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const href = a.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      })
+    });
+  </script>
+</body>
+</html>
